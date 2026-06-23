@@ -1,0 +1,34 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Unnamed" type="RunNativeExe" factoryName="Native Executable" nameIsGenerated="true">
+    <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../../../Program Files (x86)/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2.exe" />
+    <option name="PROGRAM_PARAMETERS" value="" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../../../Program Files (x86)/Steam/steamapps/common/Slay the Spire 2" />
+    <option name="PASS_PARENT_ENVS" value="1" />
+    <option name="ENV_FILE_PATHS" value="" />
+    <option name="REDIRECT_INPUT_PATH" value="" />
+    <option name="MIXED_MODE_DEBUG" value="0" />
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="false" run_configuration_name="Unnamed" run_configuration_type="DotNetFolderPublish" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="Unnamed" run_configuration_type="ShConfigurationType" />
+    </method>
+  </configuration>
+  <configuration default="false" name="Unnamed" type="DotNetFolderPublish" factoryName="Publish to folder">
+    <riderPublish configuration="ExportRelease" platform="Any CPU" target_folder="$PROJECT_DIR$/../../../../../../Program Files (x86)/Steam/steamapps/common/Slay the Spire 2/mods/Jester" target_framework="net9.0" uuid_high="-7115777035571083954" uuid_low="-4768624090036974753" />
+    <method v="2" />
+  </configuration>
+  <configuration default="false" name="Unnamed" type="ShConfigurationType" nameIsGenerated="true">
+    <option name="SCRIPT_TEXT" value="Remove-Item -Path &quot;C:\Program Files (x86)\Steam\steamapps\common\Slay the Spire 2\mods\BldSurv\*.deps.json&quot;, &quot;C:\Program Files (x86)\Steam\steamapps\common\Slay the Spire 2\mods\BldSurv\*.deps.json&quot; -Force -ErrorAction SilentlyContinue" />
+    <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+    <option name="SCRIPT_PATH" value="" />
+    <option name="SCRIPT_OPTIONS" value="" />
+    <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+    <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+    <option name="INTERPRETER_PATH" value="powershell.exe" />
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="EXECUTE_IN_TERMINAL" value="true" />
+    <option name="EXECUTE_SCRIPT_FILE" value="false" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

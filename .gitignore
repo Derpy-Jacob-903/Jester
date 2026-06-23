@@ -1,0 +1,12 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+/.godot
+/.idea
+*.import
+*.uid
+Jester/images/charui/In Candescence (Dyna vs Robot).mp3
+*.DotSettings
+Jester.sln.DotSettings.user
