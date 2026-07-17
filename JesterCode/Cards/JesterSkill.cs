@@ -15,12 +15,11 @@ public class JesterSkill() : JesterCard(-1, CardType.Quest,
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Unplayable];
 
-    public override Task AfterRoomEntered(AbstractRoom room)
+    public override async Task AfterRoomEntered(AbstractRoom room)
     {
-        if (room.RoomType != RoomType.Event)
-            return Task.CompletedTask;
+        if (room.RoomType is not (RoomType.Monster or RoomType.Elite or RoomType.Boss))
+            return;
 
-        // Collect ALL basic cards from ALL unlocked characters
         var pool = new List<CardModel>();
 
         foreach (var character in Owner.UnlockState.Characters)
@@ -34,19 +33,25 @@ public class JesterSkill() : JesterCard(-1, CardType.Quest,
                     !blacklist.Contains(c.Id.Entry))
             );
         }
-
-        // Safety: if empty, abort
-        if (pool.Count == 0)
-            return Task.CompletedTask;
-
-        var card = this.CardScope.CreateCard(
-            Owner.PlayerRng.Transformations.NextItem<CardModel>((IEnumerable<CardModel>)pool), this.Owner);
-
-        return CardCmd.Transform(this, card);
+        var list2 = CardFactory.GetDistinctForCombat(Owner, pool, 3, Owner.RunState.Rng.CombatCardGeneration).ToList<CardModel>();
+        if (IsUpgraded)
+        {
+            foreach (CardModel card2 in list2)
+                CardCmd.Upgrade(card2);
+        }
+        CardModel card = await CardSelectCmd.FromChooseACardScreen(new BlockingPlayerChoiceContext(), (IReadOnlyList<CardModel>) list2, Owner, false);
+        
+        //if (pool.Count == 0)
+            //return Task.CompletedTask;
+        //var card = this.CardScope.CreateCard(
+            //Owner.PlayerRng.Transformations.NextItem<CardModel>((IEnumerable<CardModel>)pool), this.Owner);
+        if (card is null) return;
+        await CardCmd.Transform(this, card);
     }
 
     private static List<string> blacklist =>
     [
+        "GUARDIAN-SECOND_SLAM", //token of Twin Slam
         "METEOR_FRAGMENT", //relies on creating Debris explicitly
         "STS2_STARTING_DECK_SELECT-METEOR_FRAGMENT",
         "TEMPERED_EDGE", //relies on having a Sovereign Blade 

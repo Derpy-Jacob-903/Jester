@@ -32,7 +32,7 @@ public class SplitTheAtom() : JesterCard(6,
     {
         if (CombatState?.RunState?.CurrentRoom is not CombatRoom combatRoom) return;
         await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
-            .FromCard(this).TargetingAllOpponents(CombatState)
+            .FromCard(play.Card, play).TargetingAllOpponents(CombatState)
             .WithHitFx("vfx/vfx_attack_slash", null, "blunt_attack.mp3")
             .Execute(context);
         await PowerCmd.Apply<PoisonPower>(context, CombatState.HittableEnemies, DynamicVars["Poison"].BaseValue, Owner.Creature, this);
@@ -58,7 +58,7 @@ public class SplitTheAtom() : JesterCard(6,
 
     //public override bool HasTurnEndInHandEffect => true;
     
-    private static int FakeResolveEnergyXValue(CardModel __instance)
+    public static int FakeResolveEnergyXValue(CardModel __instance)
     {
         var combatState = __instance.CombatState;
         return combatState != null ? Hook.ModifyXValue(combatState, __instance, __instance.Owner.PlayerCombatState?.Energy ?? 0) : 0;

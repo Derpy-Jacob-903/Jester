@@ -8,12 +8,12 @@ using MegaCrit.Sts2.Core.Models.Orbs;
 
 namespace Jester.JesterCode.Cards;
 
-public class HatTrick() : JesterCard(1, CardType.Skill,
+public class HatTrick() : JesterCard(2, CardType.Skill,
     CardRarity.Basic, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-            new StarsVar(1),
-            new SummonVar(3),
+            new StarsVar(2),
+            new SummonVar(5),
             new DynamicVar("Orbs", 0) //+1
         ];
     protected override async Task OnPlay(

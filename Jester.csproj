@@ -75,7 +75,7 @@
             <Private>false</Private>
         </Reference>
 
-        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="*" PrivateAssets="All"/>
+        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.3.5" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.9" />
         <AdditionalFiles Include="Jester/localization/**/*.json"/>
     </ItemGroup>
@@ -102,9 +102,14 @@
         <None Include="JesterCode\Character\JesterTomeCardPool.cs" />
         <Compile Remove="JesterCode\Character\JesterEpoch.cs" />
         <None Include="JesterCode\Character\JesterEpoch.cs" />
+        <Compile Remove="JesterCode\Cards\Multiplayer\StrikeCleric.cs" />
+        <None Include="JesterCode\Cards\Multiplayer\StrikeCleric.cs" />
+        <Compile Remove="JesterCode\Cards\Echoes\Green\Setup.cs" />
+        <None Include="JesterCode\Cards\Echoes\Green\Setup.cs" />
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="JesterCode\Cards\Echoes\Yellow\" />
         <Folder Include="Jester\images\cards\" />
         <Folder Include="Jester\images\card_portraits\big\"/>
         <Folder Include="Jester\images\powers\big\"/>

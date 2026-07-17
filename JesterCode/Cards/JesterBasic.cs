@@ -43,6 +43,7 @@ public class JesterBasic() : JesterCard(1, CardType.Quest,
 
     private static List<string> blacklist =>
     [
+        "GUARDIAN-SECOND_SLAM", //token of Twin Slam
         "METEOR_FRAGMENT", //relies on creating Debris explicitly
         "STS2_STARTING_DECK_SELECT-METEOR_FRAGMENT",
         "TEMPERED_EDGE", //relies on having a Sovereign Blade 

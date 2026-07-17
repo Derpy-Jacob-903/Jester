@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Jester.JesterCode.Cards;
 
-public class JesterDefend() : JesterCard(1, CardType.Skill,
+public class DefendJester() : JesterCard(1, CardType.Skill,
     CardRarity.Basic, TargetType.Self)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];

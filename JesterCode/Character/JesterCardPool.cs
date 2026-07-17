@@ -6,6 +6,7 @@ using Jester.JesterCode.Extensions;
 using MegaCrit.Sts2.Core.Assets;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Factories;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.Models.Events;
@@ -31,6 +32,14 @@ public class JesterCardPool : CustomCardPoolModel
     public override Texture2D CustomFrame(CustomCardModel card)
     {
         //This will attempt to load Jester/images/cards/frame.png
+        /*if (card is ISkipJesterCardback) 
+            return card.Type switch
+            {
+                CardType.Attack => ImageHelper.GetImagePath($"atlases/ui_atlas.sprites/card/card_frame_attack_s.tres"),
+                CardType.Power => ImageHelper.GetImagePath($"atlases/ui_atlas.sprites/card/card_frame_{card.Type.ToString().ToLowerInvariant()}_s.tres"),
+                CardType.Quest => ImageHelper.GetImagePath($"atlases/ui_atlas.sprites/card/card_frame_{card.Type.ToString().ToLowerInvariant()}_s.tres"),
+                _ => ImageHelper.GetImagePath($"atlases/ui_atlas.sprites/card/card_frame_{cardType.ToString().ToLowerInvariant()}_s.tres")
+            };*/
         return card.Type switch
         {
             CardType.Attack => PreloadManager.Cache.GetTexture2D("cards/frame_attack.png".ImagePath()),
@@ -75,3 +84,5 @@ public static class JesterCardPoolPatch
         //__result = __result.Union(ModelDb.AllCards.Where<CardModel>((Func<CardModel, bool>) (c => c.Pool != __instance)));
     }
 }
+
+interface ISkipJesterCardback { }

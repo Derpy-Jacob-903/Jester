@@ -24,7 +24,7 @@ public class RngCannon() : CustomCardModel(2, CardType.Skill,
     {
         var allCards = new List<CardModel>();
         IReadOnlyList<CardPileAddResult> combat = await CardPileCmd.AddGeneratedCardsToCombat(CardFactory.GetDistinctForCombat(this.Owner, CardFactory
-            .FilterForCombat(ModelDb.AllCards).Where<CardModel>((Func<CardModel, bool>) (c => c.Type is CardType.Attack && !c.Keywords.Contains(CardKeyword.Unplayable))), 1, this.Owner.RunState.Rng.CombatCardGeneration), PileType.Hand, Owner);
+            .FilterForCombat(ModelDb.AllCards).Where<CardModel>((Func<CardModel, bool>) (c => c.Type is CardType.Attack && !c.Keywords.Contains(CardKeyword.Unplayable))), 2, this.Owner.RunState.Rng.CombatCardGeneration), PileType.Hand, Owner);
         foreach (var card in combat)
         {
             CardCmd.ApplyKeyword(card.cardAdded, [CardKeyword.Exhaust]);
@@ -37,6 +37,10 @@ public class RngCannon() : CustomCardModel(2, CardType.Skill,
                 card.cardAdded.ExhaustOnNextPlay = true;
             }
             await CardCmd.AutoPlay(choiceContext, card.cardAdded, play.Target);
+            if (card.cardAdded.Keywords.Contains(CardKeyword.Unplayable))
+            {
+                await CardCmd.Exhaust(choiceContext, card.cardAdded);
+            }
         }
     }
 }

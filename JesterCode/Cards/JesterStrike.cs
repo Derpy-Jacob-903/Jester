@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Jester.JesterCode.Cards;
 
-public class JesterStrike() : JesterCard(1, CardType.Attack,
+public class StrikeJester() : JesterCard(1, CardType.Attack,
     CardRarity.Basic, TargetType.Self)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
@@ -27,7 +27,7 @@ public class JesterStrike() : JesterCard(1, CardType.Attack,
     {
         if (play.Target != null)
             await DamageCmd.Attack(base.DynamicVars.Damage.BaseValue)
-                .FromCard(this).Targeting(play.Target)
+                .FromCard(play.Card, play).Targeting(play.Target)
                 .WithHitFx("vfx/vfx_attack_slash", null, "blunt_attack.mp3")
                 .Execute(context);
     }

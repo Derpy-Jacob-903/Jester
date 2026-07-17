@@ -24,6 +24,20 @@ public class Jester : PlaceholderCharacterModel
     public override CharacterGender Gender => CharacterGender.Masculine;
     public override int StartingHp => 80;
     
+    
+    /*public override IEnumerable<CardModel> StartingDeck =>
+    [
+        ModelDb.Card<MetronomeJester>(),
+        ModelDb.Card<MetronomeJester>(),
+        ModelDb.Card<MetronomeJester>(),
+        ModelDb.Card<MetronomeJester>(),
+        ModelDb.Card<MetronomeJester>(),
+        ModelDb.Card<DefendJester>(),
+        ModelDb.Card<DefendJester>(),
+        ModelDb.Card<DefendJester>(),
+        ModelDb.Card<Bodyguard>(),
+        ModelDb.Card<HatTrick>()
+    ];*/
     /*public override IEnumerable<CardModel> StartingDeck =>
     [
         ModelDb.Card<JesterBasic>(),
@@ -38,6 +52,22 @@ public class Jester : PlaceholderCharacterModel
         ModelDb.Card<HatTrick>(),
     ];*/
     
+    /*public override IEnumerable<CardModel> StartingDeck =>
+    [
+        ModelDb.Card<JesterBasic>(),
+        ModelDb.Card<JesterBasic>(),
+        ModelDb.Card<JesterBasic>(),
+        ModelDb.Card<JesterBasic>(),
+        ModelDb.Card<JesterBasic>(),
+        ModelDb.Card<MetronomeJester>(),
+        ModelDb.Card<DefendJester>(),
+        ModelDb.Card<DefendJester>(),
+        ModelDb.Card<Survivor>(),
+        ModelDb.Card<Venerate>(),
+        ModelDb.Card<Bodyguard>(),
+        ModelDb.Card<Zap>(),
+    ];*/
+    
     public override IEnumerable<CardModel> StartingDeck =>
     [
         ModelDb.Card<JesterBasic>(),
@@ -45,9 +75,9 @@ public class Jester : PlaceholderCharacterModel
         ModelDb.Card<JesterBasic>(),
         ModelDb.Card<JesterBasic>(),
         ModelDb.Card<MetronomeJester>(),
-        ModelDb.Card<JesterDefend>(),
-        ModelDb.Card<JesterDefend>(),
-        ModelDb.Card<JesterDefend>(),
+        ModelDb.Card<DefendJester>(),
+        ModelDb.Card<DefendJester>(),
+        ModelDb.Card<DefendJester>(),
         ModelDb.Card<JesterSkill>(),
         ModelDb.Card<HatTrick>(),
     ];
@@ -124,5 +154,13 @@ public class Jester : PlaceholderCharacterModel
         //IEnumerable<CardPoolModel> pools = player.UnlockState.CharacterCardPools.Union<CardPoolModel>((IEnumerable<CardPoolModel>) options.CardPools);
         return options.WithCustomPool(ModelDb.AllCards, options.RarityOdds);
     }*/
+}
+
+/// <summary>
+/// 
+/// </summary>
+interface IMetronomeBlacklist
+{
+    
 }
 

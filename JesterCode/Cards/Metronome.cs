@@ -25,7 +25,7 @@ public class Metronome() : CustomCardModel(1, CardType.Skill,
         var allCards = new List<CardModel>();
 
         IReadOnlyList<CardPileAddResult> combat = await CardPileCmd.AddGeneratedCardsToCombat(CardFactory.GetDistinctForCombat(this.Owner, CardFactory
-            .FilterForCombat(ModelDb.AllCards).Where<CardModel>((Func<CardModel, bool>) (c => c.Type is CardType.Attack or CardType.Skill or CardType.Power && !c.Keywords.Contains(CardKeyword.Unplayable))), 1, this.Owner.RunState.Rng.CombatCardGeneration), PileType.Hand, Owner);
+            .FilterForCombat(ModelDb.AllCards).Where<CardModel>((Func<CardModel, bool>) (c => c.Type is CardType.Attack or CardType.Skill or CardType.Power && !c.Keywords.Contains(CardKeyword.Unplayable) && !IsBlacklisted(c))), 1, this.Owner.RunState.Rng.CombatCardGeneration), PileType.Hand, Owner);
         foreach (var card in combat)
         {
             CardCmd.ApplyKeyword(card.cardAdded, [CardKeyword.Exhaust]);
@@ -39,5 +39,14 @@ public class Metronome() : CustomCardModel(1, CardType.Skill,
                 await CardCmd.Exhaust(choiceContext, card.cardAdded);
             }
         }
+    }
+
+    public static bool IsBlacklisted(CardModel card)
+    {
+        if (card.EnergyCost.CostsX && SplitTheAtom.FakeResolveEnergyXValue(card) > 0) return true;
+        if (card.DynamicVars.HpLoss.BaseValue > card.Owner.Creature.CurrentHp) return true;
+        if (card.DynamicVars.ExtraDamage.BaseValue > 0 && card.DynamicVars.CalculatedDamage.Calculate(null) == 0) return true;
+        if (card.DynamicVars.CalculationExtra.BaseValue > 0 && card.DynamicVars.CalculatedBlock.Calculate(null) == 0) return true;
+        return false;
     }
 }
