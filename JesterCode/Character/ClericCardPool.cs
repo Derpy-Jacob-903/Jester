@@ -20,7 +20,7 @@ public class ClericCardPool : CustomCardPoolModel
     public override string TextEnergyIconPath => "res://Jester/images/charui/white_energy_text_icon.png";
     public override float H => 0.15f; //Hue; changes the color.
     public override float S => 0.4f; //Saturation
-    public override float V => 2f; //Brightness
+    public override float V => 1.2f; //Brightness
     public override Color DeckEntryCardColor => new("ffff93");
     public override bool IsColorless => false;
 }

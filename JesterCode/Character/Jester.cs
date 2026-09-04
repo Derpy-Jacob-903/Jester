@@ -75,9 +75,9 @@ public class Jester : PlaceholderCharacterModel
         ModelDb.Card<JesterBasic>(),
         ModelDb.Card<JesterBasic>(),
         ModelDb.Card<MetronomeJester>(),
-        ModelDb.Card<DefendJester>(),
-        ModelDb.Card<DefendJester>(),
-        ModelDb.Card<DefendJester>(),
+        ModelDb.Card<JesterSkill>(),
+        ModelDb.Card<JesterSkill>(),
+        ModelDb.Card<JesterSkill>(),
         ModelDb.Card<JesterSkill>(),
         ModelDb.Card<HatTrick>(),
     ];

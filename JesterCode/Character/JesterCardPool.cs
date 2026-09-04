@@ -64,7 +64,9 @@ public static class JesterCardPoolPatch
         if (__instance is not JesterCardPool)
             return true; // run original
         __result = ModelDb.CardPool<JesterCardPool>().AllCards;
-        var allUnlocked = ModelDb.AllCharacterCardPools.Where(n => n is not JesterCardPool).SelectMany(c => c.GetUnlockedCards(
+        var allUnlocked = ModelDb.AllCharacterCardPools.Where(n => n is not JesterCardPool 
+                && !(n.Title.Contains("moonscreedport-arcrane") || n.Title.Contains("moonscreedport-echo") || n.Title.Contains("moonscreedport-polarix"))
+                ).SelectMany(c => c.GetUnlockedCards(
                 unlockState,
                 multiplayerConstraint))
             .ToList();

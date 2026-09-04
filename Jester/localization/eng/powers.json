@@ -12,8 +12,8 @@
   "JESTER-STUNNED_POWER.description": "Skip this turn.",
   "JESTER-STUNNED_POWER.smartDescription": "Skip this turn.",
   "JESTER-EXOTIC_FORM_POWER.title": "Exotic Form",
-  "JESTER-EXOTIC_FORM_POWER.description": "At the end of your turn, gain [gold]Strength[/gold] for each unique color played, for the .",
-  "JESTER-EXOTIC_FORM_POWER.smartDescription": "At the end of your turn, gain [blue]{Amount}[/blue] [gold]Strength[/gold] for each unique color played.",
+  "JESTER-EXOTIC_FORM_POWER.description": "At the end of your turn, gain [gold]Strength[/gold] for each unique color played, until the end of your next turn.",
+  "JESTER-EXOTIC_FORM_POWER.smartDescription": "At the end of your turn, gain [blue]{Amount}[/blue] [gold]Strength[/gold] for each unique color played, until the end of your next turn.",
   "JESTER-AUTOPILOT_POWER.title": "Autopilot",
   "JESTER-AUTOPILOT_POWER.description": "Vakuu plays your turn for you.",
   "JESTER-AUTOPILOT_POWER.smartDescription": "Vakuu plays this turn {Amount:plural:|and your next {Amount} turn(s)}, for you.",
@@ -28,5 +28,11 @@
   "JESTER-CONFUSION_POWER.smartDescription": "",
   "JESTER-ALPHA_POWER.title": "The Alpha",
   "JESTER-ALPHA_POWER.description": "No effects on its own. Only one player can be [gold]The Alpha[/gold]. Certain cards and powers provide bonuses for [gold]The Alpha[/gold].",
-  "JESTER-ALPHA_POWER.smartDescription": "No effects on its own. Only one player can be [gold]The Alpha[/gold]. Certain cards and powers provide bonuses for [gold]The Alpha[/gold]."
+  "JESTER-ALPHA_POWER.smartDescription": "No effects on its own. Only one player can be [gold]The Alpha[/gold]. Certain cards and powers provide bonuses for [gold]The Alpha[/gold].",
+  "JESTER-FLEX_NEXT_TURN_POWER.title": "",
+  "JESTER-FLEX_NEXT_TURN_POWER.description": "Gain [gold]Strength[/gold] until the end of your next turn.",
+  "JESTER-FLEX_NEXT_TURN_POWER.smartDescription": "Gain [gold]Strength[/gold] until the end of your next turn.",
+  "JESTER-APPARITION_POWER.title": "Apparition",
+  "JESTER-APPARITION_POWER.description": "You cannot lose more than [blue]10[/blue] HP this turn.",
+  "JESTER-APPARITION_POWER.smartDescription": "You cannot lose more than [blue]10[/blue] HP {Amount:plural:this turn|each turn, for {Amount} turns}."
 }

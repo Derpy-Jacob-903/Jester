@@ -1,7 +1,9 @@
 ﻿using BaseLib.Utils;
+using Jester.JesterCode.Cards;
 using Jester.JesterCode.Character;
 using Jester.JesterCode.Extensions;
 using Jester.JesterCode.Relics;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -30,6 +32,16 @@ public class JestersHat() : JesterRelic
             new StarsVar(3),
             new DynamicVar("Rerolls", 1M)
         ];
+    /*public override async Task BeforeHandDraw(
+        Player player,
+        PlayerChoiceContext choiceContext,
+        ICombatState combatState)
+    {
+        if (player != Owner || Owner.PlayerCombatState is not { TurnNumber: 1 }) return;
+        var miracle = combatState.CreateCard<Ponder>(Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(miracle, PileType.Hand, player);
+        Flash();
+    }*/
     public override bool TryModifyRewardsLate(Player player, List<Reward> rewards, AbstractRoom room)
     {
         if (player != this.Owner)

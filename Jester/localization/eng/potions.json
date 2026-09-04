@@ -1,0 +1,8 @@
+﻿{
+  "JESTER-ABILITY_SYRINGE.description": "Add {AncientCard.StringValue:cond:[gold]{}[/gold] to your [gold]Deck[/gold]|a card available to the [pink]The Jester[/pink].}. If used in combat, add this card to your hand.",
+  "JESTER-ABILITY_SYRINGE.title": "Lightning Potion",
+  "JESTER-CATNIP_POTION.description": "Gain {Energy:energyIcons()} for each {energyPrefix:energyIcons(1)} gained this turn.",
+  "JESTER-CATNIP_POTION.title": "Catnip Potion",
+  "JESTER-DEE_SIX_POTION.description": "Upgrade a card in your decck.",
+  "JESTER-DEE_SIX_POTION.title": "Steven Potion"
+}

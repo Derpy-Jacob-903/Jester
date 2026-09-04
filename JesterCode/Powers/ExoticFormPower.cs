@@ -23,6 +23,7 @@ public override Task BeforeCardPlayed(CardPlay cardPlay)
     if (cardPlay.Card.Owner.Creature != Owner) return Task.CompletedTask;
     if (_uniqueColorsThisTurn.Add(cardPlay.Card.Pool))
         InvokeDisplayAmountChanged();
+        //PowerCmd.Apply<FlexNextTurnPower>(new ThrowingPlayerChoiceContext(), Owner, Amount, Owner, null);
     return Task.CompletedTask;
 }
 
@@ -33,7 +34,7 @@ public override async Task BeforeFlush(PlayerChoiceContext ctx, Player player)
 
     var uniqueColorCount = _uniqueColorsThisTurn.Count;
     if (uniqueColorCount > 0)
-        await PowerCmd.Apply<FlexPotionPower>(ctx, Owner, Amount * uniqueColorCount,
+        await PowerCmd.Apply<FlexNextTurnPower>(ctx, Owner, Amount * uniqueColorCount,
             Owner, null);
     _uniqueColorsThisTurn.Clear();
     InvokeDisplayAmountChanged();

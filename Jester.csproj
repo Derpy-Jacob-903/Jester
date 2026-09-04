@@ -75,7 +75,7 @@
             <Private>false</Private>
         </Reference>
 
-        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.3.5" PrivateAssets="All" />
+        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.4.5" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.9" />
         <AdditionalFiles Include="Jester/localization/**/*.json"/>
     </ItemGroup>
@@ -89,6 +89,30 @@
         <EmbeddedResource Remove="materials/**"/>
         <EmbeddedResource Remove="shaders/**"/>
         <EmbeddedResource Remove="images/**"/>
+        <Compile Remove="JesterCode\Cards\Confusion.cs" />
+        <Compile Remove="JesterCode\Cards\CraftWeapon.cs" />
+        <Compile Remove="JesterCode\Cards\ThrowWeapon.cs" />
+        <Compile Remove="JesterCode\Cards\Multiplayer\Bloom.cs" />
+        <Compile Remove="JesterCode\Powers\ConfusionPower.cs" />
+        <Compile Remove="JesterCode\Cards\Echoes\Green\Terror.cs" />
+        <Compile Remove="JesterCode\Cards\Echoes\Green\Setup.cs" />
+        <Compile Remove="JesterCode\Powers\DischargePower.cs" />
+        <Compile Remove="JesterCode\Cards\Echoes\Green\Prepare.cs" />
+        <Compile Remove="JesterCode\Cards\Basics\JesterSkill.cs" />
+        <Compile Remove="JesterCode\Cards\Echoes\Green\Salvo.cs" />
+        <Compile Remove="JesterCode\Cards\Skills\Apparition.cs" />
+        <Compile Remove="JesterCode\Cards\Skills\ExtraTurnMadness.cs" />
+        <Compile Remove="JesterCode\Cards\Multiplayer\ChosenWarrior.cs" />
+        <Compile Remove="JesterCode\Cards\Multiplayer\Cheerlead.cs" />
+        <Compile Remove="JesterCode\Cards\Multiplayer\DivineProtection.cs" />
+        <Compile Remove="JesterCode\Cards\Skills\Craft.cs" />
+        <Compile Remove="JesterCode\Cards\Skills\Ponder.cs" />
+        <Compile Remove="JesterCode\Cards\Deprecated\Meat.cs" />
+        <Compile Remove="JesterCode\Cards\Deprecated\SmartMetronome.cs" />
+        <Compile Remove="JesterCode\Cards\Deprecated\Cleave.cs" />
+        <Compile Remove="JesterCode\Cards\Deprecated\Wild Strike.cs" />
+        <Compile Remove="JesterCode\Cards\Skills\Cacophony.cs" />
+        <Compile Remove="JesterCode\Cards\Attacks\Salvo.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -104,12 +128,10 @@
         <None Include="JesterCode\Character\JesterEpoch.cs" />
         <Compile Remove="JesterCode\Cards\Multiplayer\StrikeCleric.cs" />
         <None Include="JesterCode\Cards\Multiplayer\StrikeCleric.cs" />
-        <Compile Remove="JesterCode\Cards\Echoes\Green\Setup.cs" />
-        <None Include="JesterCode\Cards\Echoes\Green\Setup.cs" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="JesterCode\Cards\Echoes\Yellow\" />
+        <Folder Include="JesterCode\Cards\Deprecated\" />
         <Folder Include="Jester\images\cards\" />
         <Folder Include="Jester\images\card_portraits\big\"/>
         <Folder Include="Jester\images\powers\big\"/>
